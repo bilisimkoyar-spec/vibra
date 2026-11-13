@@ -1,0 +1,23 @@
+{
+  "name": "vibra",
+  "productName": "Vibra",
+  "version": "3.5.0",
+  "description": "Vibra - 3D dünya, parkur, mini oyunlar, sesli sohbet",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "desktop": "electron .",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "engines": { "node": ">=22.5" },
+  "devDependencies": { "electron": "^37.2.0", "electron-builder": "^26.0.0" },
+  "build": {
+    "appId": "com.vibra.game",
+    "productName": "Vibra",
+    "directories": { "output": "dist" },
+    "files": ["electron/**", "server.js", "okey.js", "public/**", "package.json"],
+    "win": { "target": ["nsis", "portable"] },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true }
+  },
+  "license": "MIT"
+}
